@@ -1,0 +1,177 @@
+body
+{
+    background-image: url("../Img/back3.jpg");
+    background-attachment: fixed;
+    align-content: center;
+    text-align: center;
+    cursor: url(../Img/skull_normal1.cur), auto;
+}
+header
+{
+    background-image: url("../Img/banner2.jpg");
+    background-size: cover;
+    height: 300px;
+    width: auto;
+    border-radius: 10px;
+}
+#sectionNormal
+{
+    background-color: rgba(0,0,0,0.8);
+    height: auto;
+    width: 1000px;
+    border-radius: 10px;
+    color: red;
+    align-content: center;
+    text-align: center;
+    margin: auto;
+}
+#sectionVenta
+{
+    background-color: rgba(0,0,0,0.8);
+    height: auto;
+    border-radius: 10px;
+    color: red;
+    align-content: center;
+    text-align: center;
+    margin: auto;
+}
+.nav
+{
+    height: 50px;
+    background-color: #444a54;
+    border-radius: 5px;
+    color: white;
+    align-content: center;
+    text-align: center;
+}
+nav ul li a
+{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 20px;
+    border-right: 2px solid #5c6472;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    size: 13px;
+    line-height: 37px;
+    color: white;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color:red;
+    text-decoration: none;
+}
+
+.footer{
+    position: absolute;
+    background-color: #444a54;
+    width: 100%;
+
+    line-height: 60px;
+
+}
+.blanco{
+    color: white;
+
+}
+
+/*#aNormal {
+
+    height: 100%;
+    line-height: 37px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 20px;
+    border-right: 2px solid #5c6472;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    size: 13px;
+    line-height: 37px;
+}
+#aIzquierdo
+{
+        height: 100%;
+    line-height: 37px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    size: 13px;
+    line-height: 37px;
+}*/
+#cuerpo
+{
+    padding: 20px;
+}
+#icono
+{
+    border-radius: 10px;
+    width: 60px;
+}
+#formUsuario{
+    border-style: outset;
+    width: 300px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    margin: auto;
+}
+.formVenta{
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    margin: auto;
+    border-radius: 10px;
+}
+#inputNormal{
+    width: auto;
+}
+#selectNormal
+{
+    width: auto;
+}
+div.col {
+    float: left;
+    width: 33vw;
+    text-align: center;
+    align-content: center;
+    border-right: 2px solid red;
+}
+
+.cuadrito{
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: rgba(0,0,0,0.8);
+    color: red;
+    border-radius: 10px;
+    border-top: 2px solid red;
+    border-left:2px solid red;
+    border-bottom:2px solid red;
+    border-right: 2px solid red;
+}
+.cuadrito form
+{
+    padding: 10px;
+    margin: 10px;
+}
+.cuadrito div{
+    border-top: 2px solid red;
+    border-left:2px solid red;
+    border-bottom:2px solid red;
+    border-right: 2px solid red;
+}
+
+.cuadrito img {
+    width : 200px;
+}
+@media only screen and (max-width: 768px){
+    .cuadrito img {
+        width : 100px;
+    }
+}

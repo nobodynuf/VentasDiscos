@@ -1,19 +1,27 @@
+<!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="css/bootstrap.css" />
-        <script src="js/jquery-3.3.1.js"></script>
-        <script src="js/popper.js"></script>
-        <script src="js/bootstrap.js"></script>
-        
+        <link rel="stylesheet" href="/css/bootstrap.css" />
+        <script src="/js/jquery-3.3.1.js"></script>
+        <script src="/js/popper.js"></script>
+        <script src="/js/bootstrap.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="/css/estilos.css">
     </head>
     <body>
-        
-        <nav>
-            <ul><span>Link 1</span></ul>
-            <ul><span>Link 2</span></ul>
-            <ul><span>Link 3</span></ul>
-            
+        <header>
+            <a href="." style="width: inherit; height: inherit;"></a>
+        </header>
+        <nav class="nav">
+            <ul class="nav navbar w-100 justify-content-center">
+                <li class="nav nav-item"><a href="/paginas/datosUsuario.php">LLENAR DATOS DE USUARIO</a></li><!-- id="aNormal"-->
+                <li class="nav nav-item"><a href="/paginas/venta.php">GENERAR VENTA</a></li>
+                <li class="nav nav-item"><a href="/paginas/listaVenta.php">LISTAR COMPROBANTE VENTA</a></li>
+            </ul>
+
         </nav>
-        <div class="container-fluid" >
+        <div class="container" >
+
