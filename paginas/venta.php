@@ -1,5 +1,5 @@
 <?php
-
+include '../php/session.php';
 include './comun/header.php';
 ?>
 
