@@ -7,19 +7,21 @@
  * 
  * (CC BY-SA 4.0) Jorge Manriquez
  */
+
 class Album {
-    var $artista = "";
-    var $nombre = "";
-    var $anoEdicion = 0;
-    var $formato = "";
-    var $precio = 0;
-    
-    public function __construct($artista, $nombre, $anoEdicion, $formato, $precio) {
-        $this->artista = $artista;
-        $this->nombre = $nombre;
-        $this->anoEdicion = $anoEdicion;
-        $this->formato = $formato;
-        $this->precio = $precio;
+
+    var $artista;
+    var $nombre;
+    var $anoEdicion;
+    var $formato;
+    var $precio;
+
+    public function __construct() {
+        $this->artista = "";
+        $this->nombre = "";
+        $this->anoEdicion = 0;
+        $this->formato = "";
+        $this->precio = 0;
     }
 
     public function getArtista() {
@@ -63,21 +65,23 @@ class Album {
     }
 
 }
-class Cliente{
-    var $nombre = "";
-    var $telefono = 0;
-    var $direccion = "";
-    var $comuna = "";
-    var $region = "";
-    var $correo = "";
-    
-    public function __construct($nombre, $telefono, $direccion, $comuna, $region, $correo) {
-        $this->nombre = $nombre;
-        $this->telefono = $telefono;
-        $this->direccion = $direccion;
-        $this->comuna = $comuna;
-        $this->region = $region;
-        $this->correo = $correo;
+
+class Cliente {
+
+    var $nombre;
+    var $telefono;
+    var $direccion;
+    var $comuna;
+    var $region;
+    var $correo;
+
+    public function __construct() {
+        $this->nombre = "";
+        $this->telefono = 0;
+        $this->direccion = "";
+        $this->comuna = "";
+        $this->region = "";
+        $this->correo = "";
     }
 
     public function getNombre() {
@@ -128,10 +132,12 @@ class Cliente{
         $this->correo = $correo;
     }
 
-
 }
-class Venta{
+
+class Venta {
+
     var $album;
+
 }
 
 ?>

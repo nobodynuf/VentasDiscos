@@ -24,4 +24,24 @@
 
         </nav>
         <div class="container" >
+            <!-- aqui ponemos un script que mostrara un mensaje si cierta var
+            session existe. -->
+            <script>
+                $(document).ready(function () {
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_SESSION['error'])) {
+    $errorMessage = $_SESSION['error'];
+    session_unset();
+    echo '$(\'#errorModal\').modal();';
+} else if (isset($_SESSION['mensaje'])) {
+    $mensajeMessage = $_SESSION['mensaje'];
+    unset($_SESSION['mensaje']);
+    echo '$(\'#mensajeModal\').modal();';
+}
+?>
+                });
+            </script>
 

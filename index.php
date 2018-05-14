@@ -3,24 +3,7 @@
 include 'paginas/comun/header.php';
 ?>
 <script>
-    $(document).ready(function () {
-<?php
-    session_start();
-if (isset($_SESSION['error'])) {
-        $errorMessage = $_SESSION['error'];
-        session_unset();
-        session_destroy();
-        echo '$(\'#errorModal\').modal();';
-    }else if (isset ($_SESSION['mensaje'])) {
-        $mensajeMessage = $_SESSION['mensaje'];
-        unset($_SESSION['mensaje']);
-        echo '$(\'#mensajeModal\').modal();';
-    }
-?>
-        
-    });
-
-
+    document.title = "Inicio";
 </script>
 <section id="sectionNormal">
     <img id="icono" src="./Img/metal.png">

@@ -117,7 +117,7 @@ nav ul li a:hover{
 }
 #formUsuario{
     border-style: outset;
-    width: 300px;
+    width: 33%;
     background-color: rgba(0,0,0,0.8);
     color: white;
     margin: auto;
@@ -141,6 +141,9 @@ div.col {
     text-align: center;
     align-content: center;
     border-right: 2px solid red;
+}
+table{
+    width: available;
 }
 
 .cuadrito{
@@ -169,6 +172,27 @@ div.col {
 
 .cuadrito img {
     width : 200px;
+}
+
+form input,select,value
+{
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+td input[type='submit']{
+   margin : 0 auto; 
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 @media only screen and (max-width: 768px){
     .cuadrito img {

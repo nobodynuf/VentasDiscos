@@ -1,8 +1,10 @@
 <?php
-    include './comun/header.php';
+
+include '../php/session.php';
+include './comun/header.php';
 ?>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         // esperamos a que cargue la pagina y cambiamos el titulo
         document.title = "Ingresar usuario";
     });
@@ -10,5 +12,6 @@
 <img src="../Img/oops.jpg" />
 
 <?php
-    include './comun/footer.php';
+
+include './comun/footer.php';
 ?>

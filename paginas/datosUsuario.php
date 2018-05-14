@@ -75,8 +75,8 @@ include './comun/header.php';
         document.title = "Ingresar usuario";
 
         var iRegion = 0;
-        var htmlRegion = '<option value="NaN">Seleccione región</option><option value="NaN">--</option>';
-        var htmlComunas = '<option value="NaN">Seleccione comuna</option><option value="NaN">--</option>';
+        var htmlRegion = '<option value="">Seleccione región</option><option value="">--</option>';
+        var htmlComunas = '<option value="">Seleccione comuna</option><option value="">--</option>';
 
         $.each(RegionesYcomunas.regiones, function () {
             htmlRegion = htmlRegion + '<option value="' + RegionesYcomunas.regiones[iRegion].NombreRegion + '">' + RegionesYcomunas.regiones[iRegion].NombreRegion + '</option>';
@@ -123,16 +123,58 @@ include './comun/header.php';
         });
     });
 
+    function Comprobar() {
+        var cosasQueFaltan = "";
+        if (formUsuario.txtNombre.value == "") {
+            cosasQueFaltan = cosasQueFaltan + "Nombre "
+        }
+        if (formUsuario.txtTelefono.value == "") {
+            cosasQueFaltan = cosasQueFaltan + "Telefono "
+        }
+        if (formUsuario.txtDireccion.value == "") {
+            cosasQueFaltan = cosasQueFaltan + "Direccion "
+        }
+        if (formUsuario.txtRegion.value == "") {
+            cosasQueFaltan = cosasQueFaltan + "Region "
+        }
+        if (formUsuario.txtComuna.value == "") {
+            cosasQueFaltan = cosasQueFaltan + "Comuna "
+        }
+        if (formUsuario.txtCorreo.value == "") {
+            cosasQueFaltan = cosasQueFaltan + "Correo "
+        }
+
+        console.log(cosasQueFaltan);
+
+        if (cosasQueFaltan === "") {
+            // QUE ONDA ESTE METODOTONTO AAAAAAAAAAAAAAA
+            if (isNaN(parseInt(formUsuario.txtTelefono.value))) {
+                $('#errorModal').find('.modal-body').html("Escribe un numero de telefono valido");
+                $('#errorModal').modal();
+                return false;
+            } else {
+                console.log("jiji");
+                return true;
+            }
+
+        } else {
+            $('#errorModal').find('.modal-body').html("Completa los campos faltantes: " + cosasQueFaltan);
+            $('#errorModal').modal();
+            return false;
+        }
+
+    }
 </script>
 
-<form id="formUsuario" action="/php/accionRegistro.php" method="post">
+<form id="formUsuario" name="formUsuario" action="/php/accionRegistro.php" method="post" onsubmit="return Comprobar()">
     Rellene con sus datos
     <br>
     <img id="icono" src="../Img/metal.png">
     <table>
         <tr>
             <td>Nombre:</td>
-            <td><input id="inputNormal" type="text" name="txtNombre"></td>
+            <td><input id="inputNormal" type="text" name="txtNombre"
+                       value=""></td>
         </tr>
         <tr>
             <td>Telefono:</td>
@@ -160,7 +202,7 @@ include './comun/header.php';
             <td><input id="inputNormal" type="text" name="txtCorreo"></td>
         </tr>
         <tr>
-            <td><input type="submit" name="btn_submit" value="Enviar"></td>
+            <td colspan="2"><input type="submit" name="btn_submit" value="Enviar"></td>
         </tr>
 
     </table>
