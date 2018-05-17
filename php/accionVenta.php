@@ -15,12 +15,17 @@ if (isset($_POST['btn_venta'])) {
     // rofl
     include 'clases.php';
     $Album = new Album();
-    if (intval($_POST['txtAno'])) {
+    
+        
+    if (intval($_POST['txtAno'])!= 0) {
+        $ano = intval($_POST['txtAno']);
+    }
+    if (true) {
         
     }
     
-    $Album->setAnoEdicion($_POST['txtAno'])
+    $Album->setAnoEdicion($_POST['txtAno']);
             
             
-            txtArtista txtNombre txtAno txtPrecio slcFormato
+    #txtArtista txtNombre txtAno txtPrecio slcFormato
 }
