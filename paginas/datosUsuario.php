@@ -178,7 +178,7 @@ include './comun/header.php';
         </tr>
         <tr>
             <td>Telefono:</td>
-            <td><input id="inputNormal" type="text" name="txtTelefono"></td>
+            <td><input id="inputNormal" type="number" name="txtTelefono"></td>
         </tr>
         <tr>
             <td>Direccion:</td>
