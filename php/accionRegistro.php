@@ -11,8 +11,11 @@ include 'clases.php';
  */
 echo isset($_POST['btn_submit']);
 
+
 if (isset($_POST['btn_submit'])) {
 
+    
+    
     // aca va el negocio
     $nombre = $_POST['txtNombre'];
     $telefono = $_POST['txtTelefono'];

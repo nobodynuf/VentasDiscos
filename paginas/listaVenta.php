@@ -9,12 +9,38 @@ include './comun/header.php';
     });
 </script>
 <!-- <img src="../Img/oops.jpg" /> -->
+<?php
+if (session_status() != PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+
+$artistaAlbum = $_SESSION['venta']->getAlbum()->getArtista();
+$nomreAlbum = $_SESSION['venta']->getAlbum()->getNombre();
+$formatoAlbum = $_SESSION['venta']->getAlbum()->getFormato();
+$anoAlbum = $_SESSION['venta']->getAlbum()->getAnoEdicion();
+$precioAlbum = $_SESSION['venta']->getAlbum()->getPrecio();
+
+$fechaVenta = $_SESSION['venta']->getFecha();
+$cantidadVenta = $_SESSION['venta']->getCantidad();
+$formaVenta = $_SESSION['venta']->getFormaPago();
+
+$nombreCliente = $_SESSION['venta']->getCliente()->getNombre();
+$direccionCliente = $_SESSION['venta']->getCliente()->getDireccion();
+$comunaCliente = $_SESSION['venta']->getCliente()->getComuna();
+$regionCliente = $_SESSION['venta']->getCliente()->getRegion();
+$correoCliente = $_SESSION['venta']->getCliente()->getCorreo();
+$telefonoCliente = $_SESSION['venta']-getCliente()->getTelefono();
+?>
+
+<div class="cuadrito row" >
+    <div classbreAlbum = $_SESSION['venta']->getAlbum()->getNombre();
 
 <div class="cuadrito row" >
     <div class="col-md-2" style="border-style: none">
-        
+
     </div>
-    
+
     <div class="col-md-8 " style="border-style: none">
         <h1>Detalles venta</h1>
 
@@ -23,7 +49,7 @@ include './comun/header.php';
         <img id="icono" src="../Img/metal.png">
     </div>
     <div class="col-md-2 " style="border-style: none">
-        
+
     </div>
 </div>
 <div class="cuadrito row">
@@ -39,27 +65,27 @@ include './comun/header.php';
             <tbody>
                 <tr>
                     <td>Nombre</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $nombreCliente ?></td>
                 </tr>
                 <tr>
                     <td>Teléfono</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $telefonoCliente ?></td>
                 </tr>
                 <tr>
                     <td>Dirección</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $direccionCliente ?></td>
                 </tr>
                 <tr>
                     <td>Comuna</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $comunaCliente ?></td>
                 </tr>
                 <tr>
                     <td>Región</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $regionCliente ?></td>
                 </tr>
                 <tr>
                     <td>Correo</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?=$correoCliente ?></td>
                 </tr>
             </tbody>
 

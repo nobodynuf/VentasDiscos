@@ -24,31 +24,50 @@ $select = ' <td>Formato:</td>
                             </option>
                         </select>
                     </td>';
-$boton = '                    <td colspan="2"><input class="btn-dark" type="submit" name="btn_venta" value="Comprar"></td>
+$boton = '                    <td colspan="2"><input class="btn-dark" type="submit" onsubmit="return mostarOtroForm()" name="btn_venta" value="Comprar"></td>
 ';
 ?>
 <script>
     // hermano la pulenta me dio paja ir uno por uno de los forms
     // poniendo los action, method, y poniendo en onsubmit.
     // el codigo de abajo lo hace
-    
+
     $(function () {
-        $('.formVenta').attr('action', '../php/accionVenta.php');
+        //$('.formVenta').attr('action', '../php/accionVenta.php');
         $('.formVenta').attr('name', 'formVenta');
-        $('.formVenta').attr('method', 'POST');
-        $('.formVenta').submit(function(){return FormatoSeleccionado($(this));});
+        //$('.formVenta').attr('method', 'POST');
+        $('.formVenta').submit(function () {
+            return FormatoSeleccionado($(this));
+        });
     });
     function FormatoSeleccionado(a) {
         console.log(a[0]);
         // vemos que onda el formato
         if (a[0].elements["slcFormato"].value == "") {
             //abre el cuadro
-            $('#errorModal').find('.modal-body').html("Debes seleccionar un formato del album "+a[0].elements["txtNombre"].value+"");
+            $('#errorModal').find('.modal-body').html("Debes seleccionar un formato del album " + a[0].elements["txtNombre"].value + "");
             $('#errorModal').modal();
             return false;
-        }else{
-            return true;
+        } else {
+            $('#txtAno').val(a[0].elements["txtAno"].value);
+            $('#txtArtista').val(a[0].elements["txtArtista"].value);
+            $('#txtNombre').val(a[0].elements["txtNombre"].value);
+            $('#slcFormato').val(a[0].elements["slcFormato"].value);
+            $('#txtPrecio').val(a[0].elements["txtPrecio"].value);
+            return mostarOtroForm();
         }
+    }
+    function mostarOtroForm() {
+        $('#formModal').modal();
+        $('#formVenta').attr('action', '../php/accionVenta.php');
+        $('#formVenta').attr('method', 'post');
+        return false;
+    }
+
+    function generarVenta() {
+        
+        //negociame esta
+        return false;
     }
 </script>
 <section class = "row cuadrito">
@@ -228,6 +247,68 @@ $boton = '                    <td colspan="2"><input class="btn-dark" type="subm
         </form>
     </div>
 </section>
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formModalLabel">Informacion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="#" id="formVenta">
+                <div class="modal-body">
+
+                    <table>
+                        <tr>
+                            <th>*******</th>
+                            <th>*******</th>
+                        </tr>
+                        <tr>
+                            <td>Cantidad</td>
+                            <td><input type="number" name="txtCantidad"></td>
+                        </tr>
+                        <tr>
+                            <td>Forma de Pago</td>
+                            <td>
+                                <select name="slcPago">
+                                    <option value="">
+                                        Seleccione...
+                                    </option>
+                                    <option value="Credito">
+                                        Tarjeta Credito
+                                    </option>
+                                    <option value="Efectivo o Debito">
+                                        Efectivo o Debito
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td colspan="2">
+
+
+                            </td>
+                        </tr>
+
+                    </table>
+                    <input id="txtNombre" type="hidden" name="txtNombre" />
+                    <input id="txtArtista" type="hidden" name="txtArtista" />
+                    <input id="txtAno" type="hidden" name="txtAno" />
+                    <input id="slcFormato" type="hidden" name="slcFormato" />
+                    <input id="txtPrecio" type="hidden" name="txtPrecio" />
+                </div>
+                <div class="modal-footer">
+                    <!--        <button type="button" class="btn btn-secondary" data-dismiss="modal"></button>-->
+
+                    <input type="submit" onsubmit="return generarVenta()" class="btn btn-outline-danger" name="btn_gVenta" value="Generar Venta" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <?php
 include './comun/footer.php';
 ?>

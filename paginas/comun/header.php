@@ -34,7 +34,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if (isset($_SESSION['error'])) {
     $errorMessage = $_SESSION['error'];
-    session_unset();
+    unset($_SESSION['error']);
     echo '$(\'#errorModal\').modal();';
 } else if (isset($_SESSION['mensaje'])) {
     $mensajeMessage = $_SESSION['mensaje'];

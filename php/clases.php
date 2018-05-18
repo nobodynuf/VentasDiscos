@@ -137,6 +137,63 @@ class Cliente {
 class Venta {
 
     var $album;
+    var $cliente;
+    
+    var $fecha;
+    var $cantidad;
+    var $formaPago;
+    
+    public function __construct() {
+        $this->album = new Album();
+        $this->cliente = new Cliente();
+        $this->fecha = "";
+        $this->cantidad = 0;
+        $this->formaPago = "";
+    }
+
+    
+    public function getAlbum() {
+        return $this->album;
+    }
+
+    public function getCliente() {
+        return $this->cliente;
+    }
+
+    public function getFecha() {
+        return $this->fecha;
+    }
+
+    public function getCantidad() {
+        return $this->cantidad;
+    }
+
+    public function getFormaPago() {
+        return $this->formaPago;
+    }
+
+    public function setAlbum($album) {
+        $this->album = $album;
+    }
+
+    public function setCliente($cliente) {
+        $this->cliente = $cliente;
+    }
+
+    public function setFecha($fecha) {
+        $this->fecha = $fecha;
+    }
+
+    public function setCantidad($cantidad) {
+        $this->cantidad = $cantidad;
+    }
+
+    public function setFormaPago($formaPago) {
+        $this->formaPago = $formaPago;
+    }
+    
+    
+
 
 }
 
