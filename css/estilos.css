@@ -200,3 +200,15 @@ input::-webkit-inner-spin-button {
         width : 100px;
     }
 }
+
+#modalc{
+    background-color: darkgrey;
+    margin: 0 auto;
+    color: #32383e;
+}
+
+#tablamodal{
+    background-color: darkslategrey;
+    color: white;
+    margin: 0 auto;
+}

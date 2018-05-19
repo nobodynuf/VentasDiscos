@@ -249,7 +249,7 @@ $boton = '                    <td colspan="2"><input class="btn-dark" type="subm
 </section>
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" id="modalc">
             <div class="modal-header">
                 <h5 class="modal-title" id="formModalLabel">Informacion</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
@@ -257,9 +257,9 @@ $boton = '                    <td colspan="2"><input class="btn-dark" type="subm
                 </button>
             </div>
             <form action="#" id="formVenta">
-                <div class="modal-body">
+                <div class="modal-body" id="tablamodal">
 
-                    <table>
+                    <table class="table-dark, col-lg-12">
                         <tr>
                             <th>*******</th>
                             <th>*******</th>
