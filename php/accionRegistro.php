@@ -1,6 +1,6 @@
 <?php
 
-include 'clases.php';
+require 'clases.php';
 /*
  * 
  * Here comes the license

@@ -1,6 +1,8 @@
 <?php
-include '../php/session.php';
-include './comun/header.php';
+
+require '../php/session.php';
+require './comun/header.php';
+
 ?>
 
 <?php
@@ -67,6 +69,7 @@ $boton = '                    <td colspan="2"><input class="btn-dark" type="subm
     function generarVenta() {
         
         //negociame esta
+        
         return false;
     }
 </script>
@@ -278,8 +281,8 @@ $boton = '                    <td colspan="2"><input class="btn-dark" type="subm
                                     <option value="Credito">
                                         Tarjeta Credito
                                     </option>
-                                    <option value="Efectivo o Debito">
-                                        Efectivo o Debito
+                                    <option value="Debito">
+                                        Debito
                                     </option>
                                 </select>
                             </td>

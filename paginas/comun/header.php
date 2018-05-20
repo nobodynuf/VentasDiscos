@@ -1,5 +1,13 @@
 <!DOCTYPE html>
+<?php 
 
+if (substr($_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'], '/'))=='/index.php'
+        || substr($_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'], '/')) == "/") {
+    require_once './php/clases.php';
+}else{
+    require_once '../php/clases.php';
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -31,6 +39,7 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+    
 }
 if (isset($_SESSION['error'])) {
     $errorMessage = $_SESSION['error'];

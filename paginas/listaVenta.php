@@ -1,6 +1,6 @@
 <?php
-#include '../php/session.php';
 include './comun/header.php';
+require '../php/session.php';
 ?>
 <script>
     $(document).ready(function () {
@@ -10,33 +10,31 @@ include './comun/header.php';
 </script>
 <!-- <img src="../Img/oops.jpg" /> -->
 <?php
-if (session_status() != PHP_SESSION_ACTIVE) {
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+$Venta = $_SESSION['venta'];
+$artistaAlbum = $Venta->getAlbum()->getArtista();
+$nombreAlbum = $Venta->getAlbum()->getNombre();
+$formatoAlbum = $Venta->getAlbum()->getFormato();
+$anoAlbum = $Venta->getAlbum()->getAnoEdicion();
+$precioAlbum = $Venta->getAlbum()->getPrecio();
 
+$fechaVenta = $Venta->getFecha();
+$cantidadVenta = $Venta->getCantidad();
+$formaVenta = $Venta->getFormaPago();
 
-$artistaAlbum = $_SESSION['venta']->getAlbum()->getArtista();
-$nomreAlbum = $_SESSION['venta']->getAlbum()->getNombre();
-$formatoAlbum = $_SESSION['venta']->getAlbum()->getFormato();
-$anoAlbum = $_SESSION['venta']->getAlbum()->getAnoEdicion();
-$precioAlbum = $_SESSION['venta']->getAlbum()->getPrecio();
-
-$fechaVenta = $_SESSION['venta']->getFecha();
-$cantidadVenta = $_SESSION['venta']->getCantidad();
-$formaVenta = $_SESSION['venta']->getFormaPago();
-
-$nombreCliente = $_SESSION['venta']->getCliente()->getNombre();
-$direccionCliente = $_SESSION['venta']->getCliente()->getDireccion();
-$comunaCliente = $_SESSION['venta']->getCliente()->getComuna();
-$regionCliente = $_SESSION['venta']->getCliente()->getRegion();
-$correoCliente = $_SESSION['venta']->getCliente()->getCorreo();
-$telefonoCliente = $_SESSION['venta']-getCliente()->getTelefono();
+$nombreCliente = $Venta->getCliente()->getNombre();
+$direccionCliente = $Venta->getCliente()->getDireccion();
+$comunaCliente = $Venta->getCliente()->getComuna();
+$regionCliente = $Venta->getCliente()->getRegion();
+$correoCliente = $Venta->getCliente()->getCorreo();
+$telefonoCliente = $Venta->getCliente()->getTelefono();
 ?>
 
 <div class="cuadrito row" >
-    <div classbreAlbum = $_SESSION['venta']->getAlbum()->getNombre();
 
-<div class="cuadrito row" >
+
     <div class="col-md-2" style="border-style: none">
 
     </div>
@@ -51,8 +49,6 @@ $telefonoCliente = $_SESSION['venta']-getCliente()->getTelefono();
     <div class="col-md-2 " style="border-style: none">
 
     </div>
-</div>
-<div class="cuadrito row">
     <div class="col-md-6">
         <table class="table table-dark">
             <thead>
@@ -85,10 +81,34 @@ $telefonoCliente = $_SESSION['venta']-getCliente()->getTelefono();
                 </tr>
                 <tr>
                     <td>Correo</td>
-                    <td><?=$correoCliente ?></td>
+                    <td><?= $correoCliente ?></td>
                 </tr>
             </tbody>
-
+            
+        </table>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <td colspan="2" style="text-align: left">
+                        Información venta
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fecha</td>
+                    <td><?= $fechaVenta ?></td>
+                </tr>
+                <tr>
+                    <td>Cantidad comprada</td>
+                    <td><?= $cantidadVenta ?></td>
+                </tr>
+                <tr>
+                    <td>Metodo de pago</td>
+                    <td><?= $formaVenta ?></td>
+                </tr>
+                
+            </tbody>
         </table>
     </div>
     <div class="col-md-6">
@@ -102,51 +122,78 @@ $telefonoCliente = $_SESSION['venta']-getCliente()->getTelefono();
             </thead>
             <tbody>
                 <tr>
+                    <?php
+                    switch ($nombreAlbum) {
+                        case "Ride the Lightning":
+                            $img = "../Img/cover1.jpg";
+                            break;
+                        case "South of Heaven" :
+                            $img = "../Img/cover2.jpg";
+                            break;
+                        case "The Final Frontier":
+                            $img = "../Img/cover3.jpg";
+                            break;
+                        case "Master of the Moon":
+                            $img = "../Img/cover4.jpg";
+                            break;
+                        case "Choche: Best hits of all time":
+                            $img = "../Img/cover5.jpg";
+                            break;
+                        case "Unkind Words":
+                            $img = "../Img/cover6.jpg";
+                            break;
+                    }
+                    ?>
                     <td colspan="2">
-                        <img src="<?= 'imagencita' ?>" class="cuadrito" />
+                        <img src="<?= $img ?>" class="cuadrito" />
                     </td>
                 </tr>
                 <tr>
                     <td>Artista</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $artistaAlbum ?></td>
                 </tr>
                 <tr>
                     <td>Nombre Álbum</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $nombreAlbum ?></td>
                 </tr>
                 <tr>
                     <td>Año edición</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $anoAlbum ?></td>
                 </tr>
                 <tr>
                     <td>Formato</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $formatoAlbum ?></td>
                 </tr>
                 <tr>
                     <td>Precio</td>
-                    <td><?= "Nombrecito" ?></td>
+                    <td><?= $precioAlbum ?></td>
                 </tr>
+                
             </tbody>
 
         </table>
     </div>
-</div>
-<div class="cuadrito row">
-    <table border="0" style="margin: 0 auto;">
-        <tbody>
-            <tr>
-                <td>Descuento:</td>
-                <td><?= "DESCUETTOT" ?></td>
-            </tr>
-            <tr>
-                <td>Total:</td>
-                <td><?= "TOTTTTTTTTTT" ?></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="cuadrito row">
+        <table border="0" style="margin: 0 auto;">
+            <tbody>
+                <tr>
+                    <td>Descuento:</td>
+                    <td>$<?= $formaVenta === 'Debito' ? ($precioAlbum * $cantidadVenta) * 0.1 : 0 ?></td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td>$<?=
+                    $formaVenta === 'Debito' ?
+                            ($precioAlbum * $cantidadVenta) - (($precioAlbum * $cantidadVenta) * 0.1) :
+                            ($precioAlbum * $cantidadVenta)
+                    ?></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
 
 </div>
-
 <?php
 include './comun/footer.php';
 ?>
